@@ -8,7 +8,7 @@ import { StrictMode } from "react"
 import { OpenAPI } from "./client"
 import theme from "./theme"
 
-OpenAPI.BASE = import.meta.env.VITE_API_URL
+OpenAPI.BASE = import.meta.env.VITE_API_URL || "http://localhost:8000" // Use default if env is missing
 OpenAPI.TOKEN = async () => {
   return localStorage.getItem("access_token") || ""
 }
