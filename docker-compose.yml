@@ -145,6 +145,9 @@ services:
       args:
         - VITE_API_URL=https://api.${DOMAIN?Variable not set}
         - NODE_ENV=production
+    volumes:
+      - ./frontend:/app # Mounts the local frontend directory to the /app directory in the container
+      - /app/node_modules # Prevents node_modules from being overwritten by the volume
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public
